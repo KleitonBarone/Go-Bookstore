@@ -3,10 +3,10 @@ services:
 
   app:
     build:
-      dockerfile: ./docker/gonoticias.Dockerfile
+      dockerfile: ./Dockerfile
       context: .
-    image: golang
-    container_name: app1
+    image: bookstore
+    container_name: bookstore
     ports:
       - "8080"
     networks:

@@ -1,5 +1,5 @@
 version: '3.4'
-services: 
+services:
 
   app:
     build:
@@ -17,9 +17,9 @@ services:
   mysql:
     image: mysql
     container_name: mysql
-    ports: 
+    ports:
       - 3306:3306
-    environment:       
+    environment:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
       - MYSQL_DATABASE=bookstore
@@ -28,7 +28,6 @@ services:
       - ./mysql:/var/lib/mysql
     networks:
       - bookstore
-
 
 networks:
   bookstore:

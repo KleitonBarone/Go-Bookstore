@@ -1,6 +1,6 @@
 package config
 
-import(
+import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -9,7 +9,7 @@ import(
 const (
 	DB_NAME = "bookstore"
 	DB_HOST = "localhost"
-	DB_USER = "admin"
+	DB_USER = "root"
 	DB_PASS = "admin"
 	DB_PORT = "3306"
 )

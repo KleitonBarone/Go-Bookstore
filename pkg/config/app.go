@@ -8,8 +8,8 @@ import (
 
 const (
 	DB_NAME = "bookstore"
-	DB_HOST = "localhost"
-	DB_USER = "root"
+	DB_HOST = "db"
+	DB_USER = "admin"
 	DB_PASS = "admin"
 	DB_PORT = "3306"
 )

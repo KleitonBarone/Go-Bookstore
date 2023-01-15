@@ -37,6 +37,22 @@ func GetBookById(response http.ResponseWriter, request *http.Request) {
 func CreateBook(response http.ResponseWriter, request *http.Request) {
 	bookData := &models.Book{}
 	utils.ParseBody(request, bookData)
+	validationErrors := []string{}
+	if bookData.Name == "" {
+		validationErrors = append(validationErrors, fmt.Errorf("Name is required").Error())
+	}
+	if bookData.Author == "" {
+		validationErrors = append(validationErrors, fmt.Errorf("Author is required").Error())
+	}
+	if bookData.Publication == "" {
+		validationErrors = append(validationErrors, fmt.Errorf("Publication is required").Error())
+	}
+	if len(validationErrors) > 0 {
+		response.Header().Set("Content-Type","Application/json")
+		response.WriteHeader(http.StatusBadRequest)
+		if err := json.NewEncoder(response).Encode(validationErrors); err != nil {}
+		return
+	}
 	newBook := bookData.CreateBook()
 	responseBody, _ := json.Marshal(newBook)
 	response.Header().Set("Content-Type","Application/json")
